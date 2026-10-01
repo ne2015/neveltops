@@ -98,7 +98,6 @@ input:focus,textarea:focus{border-color:var(--c2);box-shadow:0 0 20px rgba(0,229
 .bigfeat{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:0 auto 30px;max-width:760px}
 .bigfeat div{padding:16px;border-radius:18px;background:rgba(7,6,15,.6);border:1px solid var(--bd);font-size:1.8rem}
 .bigfeat b{display:block;font-size:1rem;margin-top:4px}.bigfeat small{display:block;font-size:.8rem;color:var(--mut)}
-.mailnote{color:var(--mut);font-size:.9rem}.mailnote b{color:#fff}#mailmsg{color:var(--c2)}
 .views{display:table;margin:0 auto 14px;padding:8px 20px;border-radius:40px;border:1px solid var(--bd);background:var(--glass);color:var(--c2)}.views b{font-family:Syne;font-size:1.2rem;color:#fff}
 footer{text-align:center;padding:50px 20px;color:var(--mut);border-top:1px solid var(--bd)}
 .rv{opacity:0;transform:translateY(50px);transition:opacity .8s,transform .8s}
@@ -111,7 +110,7 @@ footer{text-align:center;padding:50px 20px;color:var(--mut);border-top:1px solid
 
 <nav>
   <a href="#top" class="logo">Nevel<span>Tops</span></a>
-  <div class="links"><a href="#ideas">Ideas</a><a href="#lab">Idea Lab</a><a href="#arcade">Arcade</a><a href="#quest">Big Game</a><a href="#watch">Watch</a><a href="#contact">Contact</a></div>
+  <div class="links"><a href="#ideas">Ideas</a><a href="#lab">Idea Lab</a><a href="#arcade">Arcade</a><a href="#quest">Big Game</a><a href="#watch">Watch</a></div>
   <a class="btn sm" href="https://www.youtube.com/@NevelTops?sub_confirmation=1" target="_blank" rel="noopener">▶ Subscribe</a>
 </nav>
 
@@ -202,20 +201,8 @@ footer{text-align:center;padding:50px 20px;color:var(--mut);border-top:1px solid
   </div>
 </section>
 
-<section id="contact">
-  <h2 class="rv">Any <em>suggestions?</em></h2>
-  <p class="lead rv">Tell me what you would like to see — send your suggestions over.</p>
-  <form class="rv" id="f">
-    <input id="n" placeholder="Your name" required>
-    <input id="e" type="email" placeholder="Your email" required>
-    <textarea id="m" rows="5" placeholder="Your suggestion" required></textarea>
-    <button class="btn" type="submit">✉ Send message</button>
-    <p class="mailnote">Or email <b id="mailaddr">neeldell2015@gmail.com</b> <button type="button" class="btn ghost sm" id="copymail">Copy address</button> <span id="mailmsg"></span></p>
-  </form>
-</section>
-
 <footer>
-  <div class="views">👁 <b id="views">…</b> views</div>© <span id="y"></span> NevelTops · <a href="https://www.youtube.com/@NevelTops" target="_blank" rel="noopener" style="color:var(--c2)">YouTube</a> · <a href="mailto:neeldell2015@gmail.com" style="color:var(--c2)">neeldell2015@gmail.com</a></footer>
+  <div class="views">👁 <b id="views">…</b> views</div>© <span id="y"></span> NevelTops · <a href="https://www.youtube.com/@NevelTops" target="_blank" rel="noopener" style="color:var(--c2)">YouTube</a></footer>
 
 <script>
 // Title letters
@@ -258,14 +245,9 @@ document.querySelectorAll('.card').forEach(c=>{
     c.style.transform=`perspective(700px) rotateX(${(y/b.height-.5)*-12}deg) rotateY(${(x/b.width-.5)*12}deg) translateZ(6px)`});
   c.addEventListener('mouseleave',()=>c.style.transform='');
 });
-// Contact -> mailto
-document.getElementById('f').onsubmit=e=>{e.preventDefault();
-  const n=document.getElementById('n').value,em=document.getElementById('e').value,m=document.getElementById('m').value;
-  location.href=`mailto:neeldell2015@gmail.com?subject=${encodeURIComponent('NevelTops message from '+n)}&body=${encodeURIComponent(m+'\n\n— '+n+' ('+em+')')}`};
 (async()=>{const el=document.getElementById('views'),u='https://abacus.jasoncameron.dev/',k='neveltops/site';
   try{const seen=sessionStorage.getItem('nt_seen');const r=await fetch(u+(seen?'get/':'hit/')+k);const j=await r.json();sessionStorage.setItem('nt_seen','1');el.textContent=Number(j.value).toLocaleString()}
   catch(e){el.parentElement.style.display='none'}})();
-document.getElementById('copymail').onclick=async()=>{const m=document.getElementById('mailmsg');try{await navigator.clipboard.writeText('neeldell2015@gmail.com');m.textContent='Copied!'}catch(e){const r=document.createRange();r.selectNodeContents(document.getElementById('mailaddr'));const s=getSelection();s.removeAllRanges();s.addRange(r);m.textContent='Address selected, press Ctrl+C'}};
 document.getElementById('y').textContent=new Date().getFullYear();
 // Particle network background
 const cv=document.getElementById('bg'),cx=cv.getContext('2d');let W,H,P=[];
