@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NevelTops — Ideas Worth Watching</title>
+<meta name="description" content="NevelTops: a lab of wild ideas on YouTube. Watch, subscribe, and get inspired.">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07060f;--c1:#7c5cff;--c2:#00e5ff;--c3:#ff3d8b;--tx:#eceaff;--mut:#9a97c0;--glass:rgba(255,255,255,.05);--bd:rgba(255,255,255,.12)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--tx);font-family:'Space Grotesk',sans-serif;overflow-x:hidden;cursor:none}
+@media(hover:none){body{cursor:auto}.cur,.cur2{display:none}}
+a{color:inherit;text-decoration:none}
+canvas#bg{position:fixed;inset:0;z-index:-2}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.cur,.cur2{position:fixed;top:0;left:0;pointer-events:none;z-index:99;border-radius:50%;transform:translate(-50%,-50%)}
+.cur{width:8px;height:8px;background:var(--c2)}
+.cur2{width:38px;height:38px;border:1px solid var(--c2);transition:width .2s,height .2s,background .2s}
+.cur2.big{width:70px;height:70px;background:rgba(0,229,255,.12)}
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;gap:6px;align-items:center;padding:8px 10px 8px 22px;background:var(--glass);backdrop-filter:blur(16px);border:1px solid var(--bd);border-radius:60px;width:min(920px,calc(100% - 24px));justify-content:space-between}
+.logo{font-family:Syne;font-weight:800;font-size:1.2rem;letter-spacing:.5px}
+.logo span{background:linear-gradient(90deg,var(--c1),var(--c2));-webkit-background-clip:text;color:transparent}
+nav .links{display:flex;gap:22px;font-size:.9rem;color:var(--mut)}
+nav .links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:50px;font-weight:700;background:linear-gradient(120deg,var(--c1),var(--c3));box-shadow:0 0 30px rgba(124,92,255,.5);transition:transform .25s,box-shadow .25s;border:0;color:#fff;font-family:inherit;font-size:1rem;cursor:inherit}
+.btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 0 50px rgba(255,61,139,.6)}
+.btn.ghost{background:var(--glass);border:1px solid var(--bd);box-shadow:none}
+.btn.sm{padding:9px 18px;font-size:.85rem}
+section{padding:110px 6vw;max-width:1200px;margin:auto}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative}
+.tag{padding:7px 16px;border:1px solid var(--bd);border-radius:40px;background:var(--glass);font-size:.82rem;color:var(--c2);margin-bottom:26px;animation:float 4s ease-in-out infinite}
+h1{font-family:Syne;font-weight:800;font-size:clamp(3.2rem,13vw,10rem);line-height:.95;letter-spacing:-3px}
+h1 .ch{display:inline-block;opacity:0;transform:translateY(80px) rotate(8deg);animation:pop .8s cubic-bezier(.2,1.4,.4,1) forwards}
+h1 .g{background:linear-gradient(90deg,var(--c2),var(--c1),var(--c3),var(--c2));background-size:300% 100%;-webkit-background-clip:text;color:transparent;animation:pop .8s forwards,shine 6s linear infinite}
+@keyframes pop{to{opacity:1;transform:none}}
+@keyframes shine{to{background-position:300% 0}}
+@keyframes float{50%{transform:translateY(-8px)}}
+.sub{margin:28px 0 36px;font-size:clamp(1.05rem,2.2vw,1.45rem);color:var(--mut);max-width:640px}
+.sub b{color:#fff;border-right:2px solid var(--c2);padding-right:4px;animation:blink .8s steps(1) infinite}
+@keyframes blink{50%{border-color:transparent}}
+.cta{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.scroll{position:absolute;bottom:26px;width:24px;height:40px;border:2px solid var(--bd);border-radius:14px}
+.scroll::after{content:"";position:absolute;left:50%;top:8px;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--c2);animation:wheel 1.6s infinite}
+@keyframes wheel{to{transform:translateY(14px);opacity:0}}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;z-index:-1;animation:drift 12s ease-in-out infinite alternate}
+.o1{width:340px;height:340px;background:var(--c1);top:10%;left:5%}
+.o2{width:300px;height:300px;background:var(--c3);bottom:12%;right:6%;animation-delay:-5s}
+@keyframes drift{to{transform:translate(60px,-50px) scale(1.2)}}
+.marq{overflow:hidden;border-block:1px solid var(--bd);padding:18px 0;background:var(--glass);transform:rotate(-1.5deg);margin:20px -5vw}
+.marq div{display:flex;gap:50px;width:max-content;animation:mq 25s linear infinite;font-family:Syne;font-size:1.8rem;font-weight:800;text-transform:uppercase;color:transparent;-webkit-text-stroke:1px var(--mut)}
+.marq span:nth-child(3n){color:var(--c2);-webkit-text-stroke:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+h2{font-family:Syne;font-size:clamp(2rem,6vw,4rem);margin-bottom:14px;letter-spacing:-1px}
+h2 em{font-style:normal;background:linear-gradient(90deg,var(--c1),var(--c2));-webkit-background-clip:text;color:transparent}
+.lead{color:var(--mut);max-width:560px;margin-bottom:50px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.card{position:relative;padding:30px;border-radius:24px;background:var(--glass);border:1px solid var(--bd);backdrop-filter:blur(10px);transform-style:preserve-3d;transition:transform .15s,border-color .3s;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(300px circle at var(--mx,50%) var(--my,0%),rgba(124,92,255,.28),transparent 60%);opacity:0;transition:opacity .3s}
+.card:hover{border-color:var(--c1)}.card:hover::before{opacity:1}
+.card .ic{font-size:2.4rem;margin-bottom:14px;display:inline-block;animation:float 3.5s ease-in-out infinite}
+.card h3{font-family:Syne;font-size:1.4rem;margin-bottom:8px}
+.card p{color:var(--mut);font-size:.95rem}
+.num{position:absolute;right:20px;top:10px;font-family:Syne;font-size:3.5rem;color:rgba(255,255,255,.06)}
+.lab{text-align:center;padding:50px 30px;border-radius:30px;background:linear-gradient(135deg,rgba(124,92,255,.18),rgba(0,229,255,.08));border:1px solid var(--bd);position:relative;overflow:hidden}
+.lab .idea{font-family:Syne;font-size:clamp(1.4rem,4vw,2.6rem);min-height:3.4em;display:flex;align-items:center;justify-content:center;margin:24px 0;transition:opacity .25s,transform .25s}
+.lab .idea.out{opacity:0;transform:scale(.9) translateY(10px)}
+.yt{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:760px){.yt{grid-template-columns:1fr}nav .links{display:none}}
+.player{aspect-ratio:16/9;border-radius:24px;background:#000 linear-gradient(135deg,#1a1240,#0b0a1c);border:1px solid var(--bd);display:grid;place-items:center;position:relative;overflow:hidden;box-shadow:0 0 80px rgba(124,92,255,.35)}
+.play{width:90px;height:90px;border-radius:50%;background:#ff0033;display:grid;place-items:center;box-shadow:0 0 0 0 rgba(255,0,51,.6);animation:pulse 2s infinite}
+.play::after{content:"";border-left:26px solid #fff;border-block:15px solid transparent;margin-left:8px}
+@keyframes pulse{to{box-shadow:0 0 0 40px rgba(255,0,51,0)}}
+form{display:grid;gap:14px;max-width:560px}
+input,textarea{width:100%;padding:15px 18px;border-radius:16px;background:var(--glass);border:1px solid var(--bd);color:#fff;font:inherit;outline:none;transition:border-color .3s,box-shadow .3s}
+input:focus,textarea:focus{border-color:var(--c2);box-shadow:0 0 20px rgba(0,229,255,.25)}
+.gtabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.gtab,.gbtns button,#dpad button{padding:10px 18px;border-radius:40px;background:var(--glass);border:1px solid var(--bd);color:var(--tx);font:inherit;cursor:inherit;transition:all .25s}
+.gtab:hover,.gbtns button:hover:not(:disabled){border-color:var(--c2);box-shadow:0 0 18px rgba(0,229,255,.35);transform:translateY(-2px)}
+.gtab.on{background:linear-gradient(120deg,var(--c1),var(--c3));border-color:transparent;box-shadow:0 0 24px rgba(124,92,255,.5)}
+.gwrap{border-radius:22px;overflow:hidden;border:1px solid var(--bd);box-shadow:0 0 70px rgba(124,92,255,.3);background:#000;line-height:0}
+#gcv{width:100%;height:auto;display:block;outline:none;touch-action:none;cursor:none}
+#gcv:focus{box-shadow:inset 0 0 0 2px var(--c2)}
+.ghelp{margin:14px 2px;color:var(--mut);font-size:.95rem}
+.gbtns{gap:12px;flex-wrap:wrap}
+.gbtns button small{opacity:.5;margin-left:6px}
+.gbtns button:disabled{opacity:.4}
+.gbtns button.on{background:linear-gradient(120deg,var(--c1),var(--c3));border-color:transparent}
+#gwbtns button{padding:8px 14px;font-size:.9rem}
+#dpad{display:none;gap:10px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+#dpad button{font-size:1.3rem;min-width:56px;user-select:none;touch-action:none}
+@media(hover:none){#dpad[data-on="1"]{display:flex}}
+.bigcard{position:relative;text-align:center;padding:60px 26px;border-radius:32px;border:1px solid var(--bd);background:linear-gradient(135deg,rgba(124,92,255,.22),rgba(255,61,139,.12),rgba(0,229,255,.1));overflow:hidden}
+.bigglow{position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,rgba(124,92,255,.35),transparent 30%,rgba(255,61,139,.3),transparent 60%);animation:spin 14s linear infinite;z-index:0}
+.bigcard>*{position:relative;z-index:1}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bigfeat{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:0 auto 30px;max-width:760px}
+.bigfeat div{padding:16px;border-radius:18px;background:rgba(7,6,15,.6);border:1px solid var(--bd);font-size:1.8rem}
+.bigfeat b{display:block;font-size:1rem;margin-top:4px}.bigfeat small{display:block;font-size:.8rem;color:var(--mut)}
+.mailnote{color:var(--mut);font-size:.9rem}.mailnote b{color:#fff}#mailmsg{color:var(--c2)}
+.views{display:table;margin:0 auto 14px;padding:8px 20px;border-radius:40px;border:1px solid var(--bd);background:var(--glass);color:var(--c2)}.views b{font-family:Syne;font-size:1.2rem;color:#fff}
+footer{text-align:center;padding:50px 20px;color:var(--mut);border-top:1px solid var(--bd)}
+.rv{opacity:0;transform:translateY(50px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,h1 .ch{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas><div class="grain"></div><div class="cur"></div><div class="cur2"></div>
+
+<nav>
+  <a href="#top" class="logo">Nevel<span>Tops</span></a>
+  <div class="links"><a href="#ideas">Ideas</a><a href="#lab">Idea Lab</a><a href="#arcade">Arcade</a><a href="#quest">Big Game</a><a href="#watch">Watch</a><a href="#contact">Contact</a></div>
+  <a class="btn sm" href="https://www.youtube.com/@NevelTops?sub_confirmation=1" target="_blank" rel="noopener">▶ Subscribe</a>
+</nav>
+
+<section class="hero" id="top">
+  <div class="orb o1"></div><div class="orb o2"></div>
+  <div class="tag">● New ideas every week on YouTube</div>
+  <h1 id="title"></h1>
+  <p class="sub">Where ideas become <b id="type"></b></p>
+  <div class="cta">
+    <a class="btn" href="https://www.youtube.com/@NevelTops" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+    <a class="btn ghost" href="#lab">⚡ Spark an idea</a>
+  </div>
+  <div class="scroll"></div>
+</section>
+
+<div class="marq"><div id="mq"></div></div>
+
+<section id="ideas">
+  <h2 class="rv">What we <em>cook up</em></h2>
+  <p class="lead rv">Big thoughts, bold experiments and creative sparks — all turned into videos you can watch, steal and build on.</p>
+  <div class="grid">
+    <div class="card rv"><span class="num">01</span><div class="ic">💡</div><h3>Fresh Ideas</h3><p>Out-of-the-box concepts for projects, content and life hacks.</p></div>
+    <div class="card rv"><span class="num">02</span><div class="ic">🎬</div><h3>Video Experiments</h3><p>We test the weird stuff so you don't have to — then share what works.</p></div>
+    <div class="card rv"><span class="num">03</span><div class="ic">🚀</div><h3>Level-Up Tips</h3><p>Practical shortcuts to build, create and grow faster.</p></div>
+    <div class="card rv"><span class="num">04</span><div class="ic">🧠</div><h3>Mind Fuel</h3><p>Thought-provoking takes that make you say “why didn't I think of that?”</p></div>
+  </div>
+</section>
+
+<section id="lab">
+  <div class="lab rv">
+    <h2>The <em>Idea Lab</em></h2>
+    <p class="lead" style="margin:0 auto">Stuck? Smash the button and get a random idea to try.</p>
+    <div class="idea" id="idea">Press the button ⚡</div>
+    <button class="btn" id="gen">⚡ Generate Idea</button>
+  </div>
+</section>
+
+<section id="arcade">
+  <h2 class="rv">NevelTops <em>Arcade</em></h2>
+  <p class="lead rv">Five playable mini-games, right here. Pick one and dive in.</p>
+  <div class="rv">
+    <div class="gtabs">
+      <button class="gtab on" data-g="dungeon">🏰 Dungeon</button>
+      <button class="gtab" data-g="world">🌍 Open World</button>
+      <button class="gtab" data-g="shooter">🚀 Shooter</button>
+      <button class="gtab" data-g="rpg">⚔️ RPG</button>
+      <button class="gtab" data-g="guess">🕵️ Guess Who · 10,000</button>
+      <button class="gtab" id="grestart">↻ Restart</button>
+    </div>
+    <div class="gwrap"><canvas id="gcv" width="640" height="400" tabindex="0"></canvas></div>
+    <p id="ghelp" class="ghelp"></p>
+    <div id="rpgbtns" class="gbtns" style="display:none">
+      <button data-a="1">⚔ Attack <small>1</small></button><button data-a="2">🔥 Fireball <small>2</small></button>
+      <button data-a="3">💚 Heal <small>3</small></button><button data-a="4">🛡 Defend <small>4</small></button>
+    </div>
+    <div id="gwbtns" class="gbtns" style="display:none"></div>
+    <div id="dpad" data-on="0">
+      <button data-k="arrowup">▲</button><button data-k="arrowleft">◀</button><button data-k="arrowdown">▼</button><button data-k="arrowright">▶</button><button data-k=" " class="fire">🔥</button>
+    </div>
+  </div>
+</section>
+
+<section id="quest">
+  <div class="bigcard rv">
+    <div class="bigglow"></div>
+    <span class="tag" style="display:inline-block">★ THE BIG GAME · 10+ HOURS OF PLAY</span>
+    <h2>Realm of <em>Ideas</em></h2>
+    <p class="lead" style="margin:0 auto 26px">A full action RPG that saves as you go. Pick a Warrior, Mage or Ranger, fight through 8 worlds and 80 stages, hunt legendary loot, grow your skills, beat the bosses, then ascend and do it all again, stronger.</p>
+    <div class="bigfeat">
+      <div>🌍<b>8 Zones</b><small>Meadow to the Void</small></div>
+      <div>👑<b>80 Stages</b><small>Boss every stage</small></div>
+      <div>🗡️<b>Endless Loot</b><small>6 rarities, random perks</small></div>
+      <div>🔱<b>Ascension</b><small>Prestige for power</small></div>
+    </div>
+    <button class="btn" id="bqplay" style="font-size:1.15rem;padding:16px 38px">⚔ Play Realm of Ideas</button>
+    <p style="color:var(--mut);font-size:.85rem;margin-top:14px">WASD to move · Q / E / R for skills · M I K B H for menus · works on touch too</p>
+  </div>
+</section>
+
+<section id="watch">
+  <div class="yt">
+    <div class="rv">
+      <h2>Join the <em>crew</em></h2>
+      <p class="lead">Hit subscribe, ring the bell and never miss a new idea drop.</p>
+      <a class="btn" href="https://www.youtube.com/@NevelTops?sub_confirmation=1" target="_blank" rel="noopener">🔔 Subscribe @NevelTops</a>
+    </div>
+    <a class="player rv" href="https://www.youtube.com/@NevelTops" target="_blank" rel="noopener" aria-label="Open the NevelTops YouTube channel"><div class="play"></div></a>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="rv">Any <em>suggestions?</em></h2>
+  <p class="lead rv">Tell me what you would like to see — send your suggestions over.</p>
+  <form class="rv" id="f">
+    <input id="n" placeholder="Your name" required>
+    <input id="e" type="email" placeholder="Your email" required>
+    <textarea id="m" rows="5" placeholder="Your suggestion" required></textarea>
+    <button class="btn" type="submit">✉ Send message</button>
+    <p class="mailnote">Or email <b id="mailaddr">neeldell2015@gmail.com</b> <button type="button" class="btn ghost sm" id="copymail">Copy address</button> <span id="mailmsg"></span></p>
+  </form>
+</section>
+
+<footer>
+  <div class="views">👁 <b id="views">…</b> views</div>© <span id="y"></span> NevelTops · <a href="https://www.youtube.com/@NevelTops" target="_blank" rel="noopener" style="color:var(--c2)">YouTube</a> · <a href="mailto:neeldell2015@gmail.com" style="color:var(--c2)">neeldell2015@gmail.com</a></footer>
+
+<script>
+// Title letters
+const t=document.getElementById('title');
+[['Nevel',''],['Tops','g']].forEach(([w,c],wi)=>{
+  const line=document.createElement('div');
+  [...w].forEach((l,i)=>{const s=document.createElement('span');s.className='ch '+c;s.textContent=l;s.style.animationDelay=(wi*5+i)*.08+'s';line.appendChild(s)});
+  t.appendChild(line);
+});
+// Typewriter
+const words=['videos','adventures','inventions','experiments','the next big thing'];let wi=0,ci=0,del=false;const ty=document.getElementById('type');
+(function tick(){const w=words[wi];ty.textContent=w.slice(0,ci);
+  if(!del&&ci===w.length){del=true;return setTimeout(tick,1300)}
+  if(del&&ci===0){del=false;wi=(wi+1)%words.length}
+  ci+=del?-1:1;setTimeout(tick,del?40:90)})();
+// Marquee
+const mq=document.getElementById('mq');const m=['Ideas','Create','Watch','Subscribe','Imagine','Build','NevelTops'];
+mq.innerHTML=[...m,...m,...m,...m].map(x=>`<span>${x} ✦</span>`).join('');
+// Idea generator
+const A=['Build','Film','Invent','Remix','Redesign','Challenge yourself to','Prototype','Reimagine'];
+const B=['a gadget from junk','a 24-hour no-screen day','a tiny app that fixes one daily annoyance','your morning routine as a game','a mini documentary about your street','a secret hideout','a robot that makes you laugh','a one-minute story with no words'];
+const C=["using only what's in your room.",'in under one hour.','and film the fails.','with a friend who disagrees with you.','and share it with the world.','on a $5 budget.'];
+const gen=document.getElementById('gen'),idea=document.getElementById('idea');
+const r=a=>a[Math.random()*a.length|0];
+gen.onclick=()=>{idea.classList.add('out');setTimeout(()=>{idea.textContent=`${r(A)} ${r(B)} ${r(C)}`;idea.classList.remove('out')},250)};
+// Reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-n]').forEach(count);io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*.1+'s';io.observe(el)});
+function count(el){const n=+el.dataset.n,s=el.dataset.s;let v=0;const st=performance.now();
+  (function f(now){const p=Math.min((now-st)/1600,1);el.textContent=Math.round(n*p)+(p===1?s:'');if(p<1)requestAnimationFrame(f)})(st)}
+// Cursor
+const c1=document.querySelector('.cur'),c2=document.querySelector('.cur2');let mx=0,my=0,x2=0,y2=0;
+addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;c1.style.left=mx+'px';c1.style.top=my+'px'});
+(function f(){x2+=(mx-x2)*.15;y2+=(my-y2)*.15;c2.style.left=x2+'px';c2.style.top=y2+'px';requestAnimationFrame(f)})();
+document.querySelectorAll('a,button,.card').forEach(el=>{el.onmouseenter=()=>c2.classList.add('big');el.onmouseleave=()=>c2.classList.remove('big')});
+// Card tilt + glow
+document.querySelectorAll('.card').forEach(c=>{
+  c.addEventListener('mousemove',e=>{const b=c.getBoundingClientRect(),x=e.clientX-b.left,y=e.clientY-b.top;
+    c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');
+    c.style.transform=`perspective(700px) rotateX(${(y/b.height-.5)*-12}deg) rotateY(${(x/b.width-.5)*12}deg) translateZ(6px)`});
+  c.addEventListener('mouseleave',()=>c.style.transform='');
+});
+// Contact -> mailto
+document.getElementById('f').onsubmit=e=>{e.preventDefault();
+  const n=document.getElementById('n').value,em=document.getElementById('e').value,m=document.getElementById('m').value;
+  location.href=`mailto:neeldell2015@gmail.com?subject=${encodeURIComponent('NevelTops message from '+n)}&body=${encodeURIComponent(m+'\n\n— '+n+' ('+em+')')}`};
+(async()=>{const el=document.getElementById('views'),u='https://abacus.jasoncameron.dev/',k='neveltops/site';
+  try{const seen=sessionStorage.getItem('nt_seen');const r=await fetch(u+(seen?'get/':'hit/')+k);const j=await r.json();sessionStorage.setItem('nt_seen','1');el.textContent=Number(j.value).toLocaleString()}
+  catch(e){el.parentElement.style.display='none'}})();
+document.getElementById('copymail').onclick=async()=>{const m=document.getElementById('mailmsg');try{await navigator.clipboard.writeText('neeldell2015@gmail.com');m.textContent='Copied!'}catch(e){const r=document.createRange();r.selectNodeContents(document.getElementById('mailaddr'));const s=getSelection();s.removeAllRanges();s.addRange(r);m.textContent='Address selected, press Ctrl+C'}};
+document.getElementById('y').textContent=new Date().getFullYear();
+// Particle network background
+const cv=document.getElementById('bg'),cx=cv.getContext('2d');let W,H,P=[];
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;P=Array.from({length:Math.min(90,W/16|0)},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5}))}
+addEventListener('resize',rs);rs();
+(function d(){cx.clearRect(0,0,W,H);
+  P.forEach((p,i)=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+    cx.fillStyle='rgba(0,229,255,.7)';cx.beginPath();cx.arc(p.x,p.y,1.6,0,7);cx.fill();
+    for(let j=i+1;j<P.length;j++){const q=P[j],dx=p.x-q.x,dy=p.y-q.y,dd=dx*dx+dy*dy;
+      if(dd<14000){cx.strokeStyle=`rgba(124,92,255,${.35*(1-dd/14000)})`;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(q.x,q.y);cx.stroke()}}
+    const dx=p.x-mx,dy=p.y-my,dd=dx*dx+dy*dy;if(dd<22000){cx.strokeStyle=`rgba(255,61,139,${.6*(1-dd/22000)})`;cx.beginPath();cx.moveTo(p.x,p.y);cx.lineTo(mx,my);cx.stroke()}});
+  requestAnimationFrame(d)})();
+</script>
+<script src="games.js"></script>
+<script src="bigquest.js"></script>
+</body>
+</html>
